@@ -8,4 +8,8 @@
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AntDesign" Version="0.4.1" />
+  </ItemGroup>
+
 </Project>
