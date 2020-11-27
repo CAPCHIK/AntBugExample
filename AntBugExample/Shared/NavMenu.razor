@@ -1,11 +1,11 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">AntBugExample</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+    <button class="navbar-toggler">
         <span class="navbar-toggler-icon"></span>
     </button>
 </div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+<div>
     <ul class="nav flex-column">
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
@@ -24,14 +24,22 @@
         </li>
     </ul>
 </div>
+<Menu DefaultSelectedKeys=@(new[] { "1" })
+      Mode=MenuMode.Inline
+      Theme=MenuTheme.Dark>
+    <MenuItem Key="1" RouterLink="/" RouterMatch="NavLinkMatch.All">
+        <Icon Type="home" Theme="outline"/>
+        <span>Home</span>
+    </MenuItem>
+    <MenuItem Key="2" RouterLink="/counter" RouterMatch="NavLinkMatch.All">
+        <Icon Type="unordered-list" Theme="outline" />
+        <span>Counter</span>
+    </MenuItem>
+    <MenuItem Key="3" RouterLink="/fetchdata" RouterMatch="NavLinkMatch.All">
+        <Icon Type="plus" Theme="outline"/>
+        <span>Fetch data</span>
+    </MenuItem>
+</Menu>
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
 }
